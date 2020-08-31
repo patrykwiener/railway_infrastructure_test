@@ -1,3 +1,5 @@
+"""This module contains TestPassage class performing Passage class testing."""
+
 from typing import TYPE_CHECKING
 from unittest import TestCase
 
@@ -12,6 +14,8 @@ if TYPE_CHECKING:
 
 
 class TestPassage(TestCase):
+    """Passage class testing."""
+
     engine: 'Engine'
     session: 'Session'
     table: Table
@@ -39,20 +43,20 @@ class TestPassage(TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.engine = create_engine('sqlite:///:memory:')
-        session = sessionmaker(cls.engine)
-        cls.session = session()
+        cls.session_maker = sessionmaker(cls.engine)
 
     @classmethod
     def tearDownClass(cls) -> None:
-        cls.session.close()
         cls.engine.dispose()
 
     def setUp(self) -> None:
+        self.session = self.session_maker()
         self._create_table()
         self._add_passages()
 
     def tearDown(self) -> None:
         self._drop_table()
+        self.session.close()
 
     def test_parent_relationship_none_for_non_parent_passage(self):
         passage_id = 1
