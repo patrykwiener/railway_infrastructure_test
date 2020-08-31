@@ -1,3 +1,5 @@
+"""This module contains TestPassageService class performing PassageService class testing."""
+
 from typing import TYPE_CHECKING
 from unittest import TestCase
 
@@ -14,6 +16,8 @@ if TYPE_CHECKING:
 
 
 class TestPassageService(TestCase):
+    """PassageService class testing."""
+
     engine: 'Engine'
     session: 'Session'
     passage_1: Passage
@@ -58,20 +62,20 @@ class TestPassageService(TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.engine = create_engine('sqlite:///:memory:')
-        session = sessionmaker(cls.engine)
-        cls.session = session()
+        cls.session_maker = sessionmaker(cls.engine)
 
     @classmethod
     def tearDownClass(cls) -> None:
-        cls.session.close()
         cls.engine.dispose()
 
     def setUp(self) -> None:
+        self.session = self.session_maker()
         self._create_table()
         self._passage_service = PassageService(self.session)
 
     def tearDown(self) -> None:
         self._drop_table()
+        self.session.close()
 
     def test_get_all_root_passages(self):
         self._add_passages()

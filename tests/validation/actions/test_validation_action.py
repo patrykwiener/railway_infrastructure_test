@@ -1,3 +1,5 @@
+"""This module contains TestValidationAction class performing ValidationAction class testing."""
+
 from unittest import TestCase
 from unittest.mock import patch, MagicMock, PropertyMock
 
@@ -5,6 +7,7 @@ from validation.actions.validation_action import ValidationAction
 
 
 class TestValidationAction(TestCase):
+    """ValidationAction class testing."""
 
     def _create_validation_action_obj(self):
         return ValidationAction(self.passage_mock)
