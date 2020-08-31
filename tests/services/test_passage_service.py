@@ -12,17 +12,12 @@ from services.passage_service import PassageService
 
 if TYPE_CHECKING:
     from sqlalchemy.engine import Engine
-    from sqlalchemy.orm import Session
 
 
 class TestPassageService(TestCase):
     """PassageService class testing."""
 
     engine: 'Engine'
-    session: 'Session'
-    passage_1: Passage
-    passage_2: Passage
-    passage_3: Passage
 
     def _create_table(self):
         metadata = MetaData(self.engine)
@@ -84,8 +79,10 @@ class TestPassageService(TestCase):
         passages = self._passage_service.get_all_root_passages()
 
         self.assertEqual(len(expected), len(passages), 'Returns to many passages')
-        self.assertIs(expected[0], passages[0], 'First root passage does not equal the expected one')
-        self.assertIs(expected[1], passages[1], 'Second root passage does not equal the expected one')
+        self.assertIs(expected[0], passages[0],
+                      'First root passage does not equal the expected one')
+        self.assertIs(expected[1], passages[1],
+                      'Second root passage does not equal the expected one')
 
     def test_get_all_root_passages_with_circular_route(self):
         self._add_circular_passages()
@@ -103,8 +100,10 @@ class TestPassageService(TestCase):
         linked_passages = self._passage_service.get_linked_passages(root, max_depth)
 
         self.assertEqual(len(expected), len(linked_passages), 'Returns to many passages')
-        self.assertEqual(expected[0], linked_passages[0], 'First passage does not equal the expected one')
-        self.assertEqual(expected[1], linked_passages[1], 'Second passage does not equal the expected one')
+        self.assertEqual(expected[0], linked_passages[0],
+                         'First passage does not equal the expected one')
+        self.assertEqual(expected[1], linked_passages[1],
+                         'Second passage does not equal the expected one')
 
     def test_get_linked_passages_with_exceeded_max_depth(self):
         self._add_passages()
@@ -115,7 +114,8 @@ class TestPassageService(TestCase):
         linked_passages = self._passage_service.get_linked_passages(root, max_depth)
 
         self.assertEqual(len(expected), len(linked_passages), 'Returns to many passages')
-        self.assertEqual(expected[0], linked_passages[0], 'First passage does not equal the expected one')
+        self.assertEqual(expected[0], linked_passages[0],
+                         'First passage does not equal the expected one')
 
     def test_get_linked_passages_with_fork_in_road(self):
         self._add_forked_passages()
@@ -127,5 +127,7 @@ class TestPassageService(TestCase):
         passages = self._passage_service.get_linked_passages(root, max_depth)
 
         self.assertEqual(len(passages), expected_length, 'Does not ignore forked passages')
-        self.assertIs(expected[0], passages[0], 'First root passage does not equal the expected one')
-        self.assertIs(expected[1], passages[1], 'Second root passage does not equal the expected one')
+        self.assertIs(expected[0], passages[0],
+                      'First root passage does not equal the expected one')
+        self.assertIs(expected[1], passages[1],
+                      'Second root passage does not equal the expected one')
