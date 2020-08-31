@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING
 from railway_controller_panel import release_route
 from signal_state_model import SignalStateModel
 from validation.actions.validation_action import ValidationAction
-from validation.results.release_result import ReleaseResult
+from validation.results.passage.passage_release_result import PassageReleaseResult
 
 if TYPE_CHECKING:
     from typing import Callable, Type
@@ -19,9 +19,9 @@ class ReleaseValidationAction(ValidationAction):
         return release_route
 
     @property
-    def _result_class(self) -> 'Type[ReleaseResult]':
+    def _result_class(self) -> 'Type[PassageReleaseResult]':
         """Returns ReleaseResult class type."""
-        return ReleaseResult
+        return PassageReleaseResult
 
     def _validate_states(self, start_signal_state: str, end_signal_state: str) -> bool:
         """Validates signals states."""

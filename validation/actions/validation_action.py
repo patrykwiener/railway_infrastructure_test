@@ -6,7 +6,6 @@ from abc import abstractmethod, ABC
 from typing import TYPE_CHECKING
 
 from railway_controller_panel import get_signal_state
-from validation.results.result import Result
 
 if TYPE_CHECKING:
     from typing import Callable, Tuple
@@ -35,10 +34,10 @@ class ValidationAction(ABC):
 
     def _get_signal_states(self) -> 'Tuple[str, str]':
         """Returns tuple containing passage's semaphores states."""
-        return get_signal_state(self._passage.start_semaphore),\
+        return get_signal_state(self._passage.start_semaphore), \
             get_signal_state(self._passage.end_semaphore)
 
-    def execute(self) -> Result:
+    def execute(self):
         """
         Executes Passage state validation depended on inherited logic.
 
