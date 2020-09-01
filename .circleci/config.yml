@@ -8,7 +8,8 @@ jobs:
 
     steps:
       - checkout
-      - run: Install requirements
+      - run:
+          name: Install requirements
           command: |
             sudo pip install -r requirements.txt
 
