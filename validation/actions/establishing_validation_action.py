@@ -4,8 +4,8 @@ validation.
 """
 from typing import TYPE_CHECKING
 
-from railway_controller_panel import establish_route
-from signal_state_model import SignalStateModel
+from validation.railway_controller_panel import establish_route
+from validation.signal_state_model import SignalStateModel
 from validation.actions.validation_action import ValidationAction
 from validation.results.passage.passage_establishing_result import PassageEstablishingResult
 

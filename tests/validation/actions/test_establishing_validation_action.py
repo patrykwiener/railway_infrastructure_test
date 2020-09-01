@@ -5,7 +5,7 @@ EstablishingValidationAction class testing.
 from unittest import TestCase
 from unittest.mock import MagicMock, patch, PropertyMock
 
-from signal_state_model import SignalStateModel
+from validation.signal_state_model import SignalStateModel
 from validation.actions.establishing_validation_action import EstablishingValidationAction
 
 

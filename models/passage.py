@@ -3,10 +3,10 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import backref, relationship
 
-from settings import InputBase
+from settings import Base
 
 
-class Passage(InputBase):
+class Passage(Base):
     """Reflects 'przebiegi' table. Implements parent and child recursive relationships."""
 
     __tablename__ = 'przebiegi'

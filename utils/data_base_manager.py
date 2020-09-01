@@ -1,0 +1,50 @@
+"""This class contains DataBaseManager class responsible for database management."""
+import logging
+
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy_utils import database_exists, create_database
+
+logger = logging.getLogger(__name__)
+
+
+class DataBaseManager:
+    """Provides database management operations."""
+
+    def __init__(self):
+        self._engine = None
+
+    @property
+    def session_maker(self) -> sessionmaker:
+        """Returns session maker."""
+        return sessionmaker(self._engine)
+
+    def _check_if_table_exists(self, name: str) -> bool:
+        """Returns True if table with a given name exists, False otherwise."""
+        return self._engine.dialect.has_table(self._engine, name)
+
+    def create_engine(self, url: str):
+        """
+        Creates database engine.
+
+        :param url: database url
+        """
+        logger.info('setting up database: %s', url)
+        self._engine = create_engine(url)
+
+    def create_database_if_not_exists(self):
+        """Creates database if nto exists from engine url."""
+        if not database_exists(self._engine.url):
+            logger.info('creating database: %s', self._engine.url)
+            create_database(self._engine.url)
+
+    def create_table_if_not_exists(self, model, name: str):
+        """
+        Creates table if not exists.
+
+        :param model: model class reflecting database table
+        :param name: table name
+        """
+        if not self._check_if_table_exists(name):
+            logger.info('creating table: %s', name)
+            model.__table__.create(self._engine)

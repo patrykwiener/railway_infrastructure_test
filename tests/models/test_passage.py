@@ -10,17 +10,12 @@ from models.passage import Passage
 
 if TYPE_CHECKING:
     from sqlalchemy.engine import Engine
-    from sqlalchemy.orm import Session
 
 
 class TestPassage(TestCase):
     """Passage class testing."""
 
     engine: 'Engine'
-    session: 'Session'
-    table: Table
-    passage_1: Passage
-    passage_2: Passage
 
     def _create_table(self):
         metadata = MetaData(self.engine)
