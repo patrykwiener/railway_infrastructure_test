@@ -2,7 +2,7 @@
 from unittest import TestCase
 from unittest.mock import MagicMock
 
-from validation.utils.result_log_generator import ResultLogGenerator
+from src.validation.utils.result_log_generator import ResultLogGenerator
 
 
 class TestResultLogGenerator(TestCase):

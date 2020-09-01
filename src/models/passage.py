@@ -3,7 +3,7 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import backref, relationship
 
-from settings import Base
+from src.settings import Base
 
 
 class Passage(Base):

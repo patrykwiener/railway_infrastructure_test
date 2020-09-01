@@ -3,7 +3,7 @@
 from unittest import TestCase
 from unittest.mock import patch, MagicMock, PropertyMock
 
-from validation.actions.validation_action import ValidationAction
+from src.validation.actions.validation_action import ValidationAction
 
 
 class TestValidationAction(TestCase):
@@ -15,7 +15,7 @@ class TestValidationAction(TestCase):
     def setUp(self) -> None:
         self.passage_mock = MagicMock()
 
-    @patch('validation.actions.validation_action.get_signal_state')
+    @patch('src.validation.actions.validation_action.get_signal_state')
     @patch.object(ValidationAction, '_result_class', new_callable=PropertyMock)
     @patch.object(ValidationAction, '_controller_panel_func', new_callable=PropertyMock)
     @patch.object(ValidationAction, '__abstractmethods__', set())

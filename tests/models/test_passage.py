@@ -6,7 +6,7 @@ from unittest import TestCase
 from sqlalchemy import create_engine, Table, MetaData, Integer, Column, String
 from sqlalchemy.orm import sessionmaker
 
-from models.passage import Passage
+from src.models.passage import Passage
 
 if TYPE_CHECKING:
     from sqlalchemy.engine import Engine

@@ -2,7 +2,7 @@
 from unittest import TestCase
 from unittest.mock import MagicMock, patch
 
-from services.results_service import ResultsService
+from src.services.results_service import ResultsService
 
 
 class TestResultsService(TestCase):
@@ -15,7 +15,7 @@ class TestResultsService(TestCase):
 
     @patch.object(ResultsService, '_get_route_passage_ids')
     @patch.object(ResultsService, '_get_test_result_as_string')
-    @patch('services.results_service.Results')
+    @patch('src.services.results_service.Results')
     def test_save_route_results_creates_results(self, results_mock, get_test_result_as_string,
                                                 get_route_passage_ids):
         self.result_service.save_route_results(self.route_results)
@@ -30,7 +30,7 @@ class TestResultsService(TestCase):
         self.session.add.assert_called_once_with(results)
 
     @patch.object(ResultsService, '_get_route_passage_ids')
-    @patch('services.results_service.Results')
+    @patch('src.services.results_service.Results')
     def test_save_route_results_created_with_proper_test_result(self, results_mock,
                                                                 get_route_passage_ids):
         value_expected_list = [
@@ -50,7 +50,7 @@ class TestResultsService(TestCase):
                 )
 
     @patch.object(ResultsService, '_get_test_result_as_string')
-    @patch('services.results_service.Results')
+    @patch('src.services.results_service.Results')
     def test_save_route_results_get_proper_passage_ids(self, results_mock,
                                                        get_test_result_as_string):
         passage_1 = MagicMock()

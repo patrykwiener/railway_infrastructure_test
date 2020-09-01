@@ -3,16 +3,17 @@ This module contains RouteValidationDirector class responsible for directing rou
 """
 from typing import TYPE_CHECKING
 
-from validation.actions.establishing_validation_action import EstablishingValidationAction
-from validation.actions.release_validation_action import ReleaseValidationAction
-from validation.results.route_results import RouteResults
+from src.validation.actions.establishing_validation_action import EstablishingValidationAction
+from src.validation.actions.release_validation_action import ReleaseValidationAction
+from src.validation.results.route_results import RouteResults
 
 if TYPE_CHECKING:
-    from validation.actions.validation_action import ValidationAction
-    from validation.results.passage.passage_establishing_result import PassageEstablishingResult
-    from validation.results.passage.passage_release_result import PassageReleaseResult
-    from models.passage import Passage
-    from models.non_relational.route import Route
+    from src.models.passage import Passage
+    from src.validation.results.passage.passage_establishing_result import \
+        PassageEstablishingResult
+    from src.validation.results.passage.passage_release_result import PassageReleaseResult
+    from src.models.non_relational.route import Route
+    from src.validation.actions.validation_action import ValidationAction
     from typing import Type, List
 
 

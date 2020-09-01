@@ -4,10 +4,10 @@ from abc import abstractmethod, ABC
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
-from validation.utils.result_log_generator import ResultLogGenerator
+from src.validation.utils.result_log_generator import ResultLogGenerator
 
 if TYPE_CHECKING:
-    from models.passage import Passage
+    from src.models.passage import Passage
 
 
 @dataclass(frozen=True)

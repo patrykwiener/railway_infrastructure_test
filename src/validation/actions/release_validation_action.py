@@ -1,10 +1,10 @@
 """This module contains ReleaseValidationAction class responsible for release state validation."""
 from typing import TYPE_CHECKING
 
-from validation.railway_controller_panel import release_passage
-from validation.signal_state_model import SignalStateModel
-from validation.actions.validation_action import ValidationAction
-from validation.results.passage.passage_release_result import PassageReleaseResult
+from src.validation.actions.validation_action import ValidationAction
+from src.validation.railway_controller_panel import release_passage
+from src.validation.results.passage.passage_release_result import PassageReleaseResult
+from src.validation.signal_state_model import SignalStateModel
 
 if TYPE_CHECKING:
     from typing import Callable, Type
