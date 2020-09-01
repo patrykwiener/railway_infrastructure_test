@@ -2,7 +2,7 @@ version: 2 # use CircleCI 2.0
 jobs: 
   build: 
 
-    working_directory: ~/circleci-demo-python-django
+    working_directory: ~/circleci-railway-infrastructure_test
     docker: 
       - image: circleci/python:3.8.3
 
@@ -14,8 +14,3 @@ jobs:
       - run:
           command: |
             python -m unittest discover
-      - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
-          path: test-results
-      - store_artifacts: # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
-          path: test-results
-          destination: tr1
