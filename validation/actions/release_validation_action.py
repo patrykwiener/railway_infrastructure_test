@@ -1,7 +1,7 @@
 """This module contains ReleaseValidationAction class responsible for release state validation."""
 from typing import TYPE_CHECKING
 
-from validation.railway_controller_panel import release_route
+from validation.railway_controller_panel import release_passage
 from validation.signal_state_model import SignalStateModel
 from validation.actions.validation_action import ValidationAction
 from validation.results.passage.passage_release_result import PassageReleaseResult
@@ -15,8 +15,8 @@ class ReleaseValidationAction(ValidationAction):
 
     @property
     def _controller_panel_func(self) -> 'Callable[[int], None]':
-        """Railway Controller Panel release_route function reference."""
-        return release_route
+        """Railway Controller Panel release_passage function reference."""
+        return release_passage
 
     @property
     def _result_class(self) -> 'Type[PassageReleaseResult]':

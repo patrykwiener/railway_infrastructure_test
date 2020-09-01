@@ -21,9 +21,9 @@ def setup_info_level_logger():
 if __name__ == '__main__':
     setup_info_level_logger()
 
-    runner = App()
-    runner.parse_arguments()
-    runner.setup_input_database()
-    runner.setup_output_database()
-    runner.fetch_routes()
-    runner.perform_validation()
+    app = App()
+    app.parse_arguments()
+    app.setup_input_database()
+    app.setup_output_database()
+    app.fetch_routes()
+    app.perform_validation()

@@ -18,12 +18,12 @@ class TestEstablishingValidationAction(TestCase):
 
     @patch.object(EstablishingValidationAction, '_result_class')
     @patch('validation.actions.validation_action.get_signal_state')
-    @patch('validation.actions.establishing_validation_action.establish_route')
+    @patch('validation.actions.establishing_validation_action.establish_passage')
     def test_controller_panel_func_calls_establish_route_func(self, establish_route_mock, *args):
         self.establishing_validation_action.execute()
         establish_route_mock.assert_called_once_with(self.passage_mock.id)
 
-    @patch('validation.actions.establishing_validation_action.establish_route')
+    @patch('validation.actions.establishing_validation_action.establish_passage')
     @patch.object(EstablishingValidationAction, '_result_class', new_callable=PropertyMock)
     @patch.object(EstablishingValidationAction, '_get_signal_states')
     def test_execute_returns_expected_results(self, get_signal_states_mock, result_class_mock,
