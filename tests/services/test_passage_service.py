@@ -7,8 +7,8 @@ from sqlalchemy import MetaData, Table, Column, Integer, String
 from sqlalchemy.engine import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from models.passage import Passage
-from services.passage_service import PassageService
+from src.models.passage import Passage
+from src.services.passage_service import PassageService
 
 if TYPE_CHECKING:
     from sqlalchemy.engine import Engine

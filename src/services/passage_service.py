@@ -2,7 +2,7 @@
 
 from typing import TYPE_CHECKING
 
-from models.passage import Passage
+from src.models.passage import Passage
 
 if TYPE_CHECKING:
     from typing import List

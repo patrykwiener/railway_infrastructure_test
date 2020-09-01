@@ -5,11 +5,12 @@ This module contains RouteResults class responsible for interpreting whole route
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from models.non_relational.route import Route
+    from src.models.non_relational.route import Route
+    from src.validation.results.passage.passage_establishing_result import \
+        PassageEstablishingResult
+    from src.validation.results.passage.passage_release_result import PassageReleaseResult
+    from src.validation.results.passage.passage_result import PassageResult
     from typing import List
-    from validation.results.passage.passage_establishing_result import PassageEstablishingResult
-    from validation.results.passage.passage_release_result import PassageReleaseResult
-    from validation.results.passage.passage_result import PassageResult
 
 
 class RouteResults:

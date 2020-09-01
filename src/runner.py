@@ -2,8 +2,8 @@
 
 import logging
 
-from app import App
-from settings import ROOT_LOGGER_MODULE
+from src.app import App
+from src.settings import ROOT_LOGGER_MODULE
 
 
 def setup_info_level_logger():

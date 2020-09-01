@@ -2,12 +2,12 @@
 
 from typing import TYPE_CHECKING
 
-from models.non_relational.route import Route
+from src.models.non_relational.route import Route
 
 if TYPE_CHECKING:
     from typing import List
-    from models.passage import Passage
-    from services.passage_service import PassageService
+    from src.models.passage import Passage
+    from src.services.passage_service import PassageService
 
 
 class RouteService:
@@ -17,7 +17,7 @@ class RouteService:
         self._passage_service = passage_service
         self._route_max_length = route_max_length
 
-    def _get_route(self, root_passage: 'Passage') -> 'Route':
+    def _get_route(self, root_passage: 'Passage') -> Route:
         """
         Constructs a route basing on root_passage.
 

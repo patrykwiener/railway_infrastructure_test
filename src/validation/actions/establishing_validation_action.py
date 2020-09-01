@@ -4,10 +4,10 @@ validation.
 """
 from typing import TYPE_CHECKING
 
-from validation.railway_controller_panel import establish_passage
-from validation.signal_state_model import SignalStateModel
-from validation.actions.validation_action import ValidationAction
-from validation.results.passage.passage_establishing_result import PassageEstablishingResult
+from src.validation.actions.validation_action import ValidationAction
+from src.validation.railway_controller_panel import establish_passage
+from src.validation.results.passage.passage_establishing_result import PassageEstablishingResult
+from src.validation.signal_state_model import SignalStateModel
 
 if TYPE_CHECKING:
     from typing import Callable, Type

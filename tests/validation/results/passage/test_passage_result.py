@@ -3,7 +3,7 @@
 from unittest import TestCase
 from unittest.mock import patch, MagicMock
 
-from validation.results.passage.passage_result import PassageResult
+from src.validation.results.passage.passage_result import PassageResult
 
 
 class TestPassageResult(TestCase):

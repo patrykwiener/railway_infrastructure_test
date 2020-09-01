@@ -2,7 +2,7 @@
 from unittest import TestCase
 from unittest.mock import MagicMock
 
-from services.route_service import RouteService
+from src.services.route_service import RouteService
 
 
 class TestRouteService(TestCase):

@@ -6,7 +6,7 @@ logs.
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from validation.results.passage.passage_result import PassageResult
+    from src.validation.results.passage.passage_result import PassageResult
 
 
 class ResultLogGenerator:

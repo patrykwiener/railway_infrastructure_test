@@ -3,7 +3,7 @@
 import logging
 import random
 
-from validation.signal_state_model import SignalStateModel
+from src.validation.signal_state_model import SignalStateModel
 
 logger = logging.getLogger(__name__)
 
