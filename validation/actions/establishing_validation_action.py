@@ -4,7 +4,7 @@ validation.
 """
 from typing import TYPE_CHECKING
 
-from validation.railway_controller_panel import establish_route
+from validation.railway_controller_panel import establish_passage
 from validation.signal_state_model import SignalStateModel
 from validation.actions.validation_action import ValidationAction
 from validation.results.passage.passage_establishing_result import PassageEstablishingResult
@@ -18,8 +18,8 @@ class EstablishingValidationAction(ValidationAction):
 
     @property
     def _controller_panel_func(self) -> 'Callable[[int], None]':
-        """Railway Controller Panel establish_route function reference."""
-        return establish_route
+        """Railway Controller Panel establish_passage function reference."""
+        return establish_passage
 
     @property
     def _result_class(self) -> 'Type[PassageEstablishingResult]':
