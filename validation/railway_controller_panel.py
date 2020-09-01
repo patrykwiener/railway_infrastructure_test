@@ -1,7 +1,7 @@
 import random
 import logging
 
-from signal_state_model import SignalStateModel
+from validation.signal_state_model import SignalStateModel
 
 logger = logging.getLogger(__name__)
 

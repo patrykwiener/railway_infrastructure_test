@@ -6,7 +6,7 @@ from models.results import Results
 from validation.results.route_results import RouteResults
 
 if TYPE_CHECKING:
-    from sql_tutorial import Session
+    from sqlalchemy.orm import Session
 
 
 class ResultsService:

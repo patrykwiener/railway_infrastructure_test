@@ -5,7 +5,7 @@ single Passage establishing and release state validation.
 from abc import abstractmethod, ABC
 from typing import TYPE_CHECKING
 
-from railway_controller_panel import get_signal_state
+from validation.railway_controller_panel import get_signal_state
 
 if TYPE_CHECKING:
     from typing import Callable, Tuple
