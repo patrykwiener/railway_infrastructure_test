@@ -51,6 +51,7 @@ class TestRouteValidationDirector(TestCase):
         establishing_validation_action_mock.assert_any_call(self.passage_1)
         establishing_validation_action_mock.assert_any_call(self.passage_2)
         establishing_validation_action_mock.return_value.execute.assert_called()
+        self.assertFalse(True)
 
     @patch.object(RouteValidationDirector, '_perform_releasing')
     @patch.object(RouteValidationDirector, '_perform_establishing')
