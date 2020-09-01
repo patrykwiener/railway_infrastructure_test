@@ -1,16 +1,24 @@
 version: 2 # use CircleCI 2.0
-jobs: 
-  build: 
+jobs:
+  build:
 
     working_directory: ~/circleci-railway-infrastructure_test
-    docker: 
+    docker:
       - image: circleci/python:3.8.3
 
-    steps: 
+    steps:
       - checkout
-      - run:
+      - run: Install requirements
           command: |
             sudo pip install -r requirements.txt
+
       - run:
+          name: Run tests
           command: |
-            python -m unittest discover
+            python -m unittest discover -s tests
+
+      - run:
+          name: Run pylint
+          command: |
+            pip install pylint
+            pylint src
