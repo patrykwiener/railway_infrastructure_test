@@ -5,7 +5,7 @@ testing.
 from unittest import TestCase
 from unittest.mock import patch, MagicMock
 
-from validation.route_validation_director import RouteValidationDirector
+from src.validation.route_validation_director import RouteValidationDirector
 
 
 class TestRouteValidationDirector(TestCase):
@@ -21,9 +21,9 @@ class TestRouteValidationDirector(TestCase):
         self.route.reversed_passages = self.passages[::-1]
         self.route_validation_director = RouteValidationDirector(self.route)
 
-    @patch('validation.route_validation_director.RouteResults')
-    @patch('validation.route_validation_director.EstablishingValidationAction')
-    @patch('validation.route_validation_director.ReleaseValidationAction')
+    @patch('src.validation.route_validation_director.RouteResults')
+    @patch('src.validation.route_validation_director.EstablishingValidationAction')
+    @patch('src.validation.route_validation_director.ReleaseValidationAction')
     def test_validate_performs_release_validation(self, release_validation_action_mock, *args):
         expected_release_validation_action_call_number = 2
 
@@ -36,9 +36,9 @@ class TestRouteValidationDirector(TestCase):
         release_validation_action_mock.assert_any_call(self.passage_2)
         release_validation_action_mock.return_value.execute.assert_called()
 
-    @patch('validation.route_validation_director.RouteResults')
-    @patch('validation.route_validation_director.ReleaseValidationAction')
-    @patch('validation.route_validation_director.EstablishingValidationAction')
+    @patch('src.validation.route_validation_director.RouteResults')
+    @patch('src.validation.route_validation_director.ReleaseValidationAction')
+    @patch('src.validation.route_validation_director.EstablishingValidationAction')
     def test_validate_performs_establishing_validation(self, establishing_validation_action_mock,
                                                        *args):
         expected_establishing_validation_action_call_number = 2
@@ -54,7 +54,7 @@ class TestRouteValidationDirector(TestCase):
 
     @patch.object(RouteValidationDirector, '_perform_releasing')
     @patch.object(RouteValidationDirector, '_perform_establishing')
-    @patch('validation.route_validation_director.RouteResults')
+    @patch('src.validation.route_validation_director.RouteResults')
     def test_validate_returns_route_results(self, route_results_mock, perform_establishing_mock,
                                             perform_releasing_mock):
         expected_perform_establishing_value = MagicMock()

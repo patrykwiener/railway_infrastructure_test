@@ -2,7 +2,7 @@
 
 from sqlalchemy.ext.declarative import declarative_base
 
-from utils.data_base_manager import DataBaseManager
+from src.utils.data_base_manager import DataBaseManager
 
 ROUTE_MAX_LENGTH = 4
 

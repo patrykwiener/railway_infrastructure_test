@@ -2,7 +2,7 @@
 from unittest import TestCase
 from unittest.mock import MagicMock
 
-from validation.results.route_results import RouteResults
+from src.validation.results.route_results import RouteResults
 
 
 class TestRouteResults(TestCase):

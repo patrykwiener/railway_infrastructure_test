@@ -2,7 +2,7 @@
 
 from sqlalchemy import Column, Integer, String
 
-from settings import Base
+from src.settings import Base
 
 
 class Results(Base):

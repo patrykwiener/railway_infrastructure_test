@@ -2,7 +2,7 @@
 from unittest import TestCase
 from unittest.mock import MagicMock
 
-from models.non_relational.route import Route
+from src.models.non_relational.route import Route
 
 
 class TestRoute(TestCase):

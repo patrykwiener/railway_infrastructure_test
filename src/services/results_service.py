@@ -2,11 +2,11 @@
 
 from typing import TYPE_CHECKING
 
-from models.results import Results
-from validation.results.route_results import RouteResults
+from src.models.results import Results
 
 if TYPE_CHECKING:
     from sqlalchemy.orm import Session
+    from src.validation.results.route_results import RouteResults
 
 
 class ResultsService:
@@ -20,16 +20,16 @@ class ResultsService:
     def __init__(self, session: 'Session'):
         self._session = session
 
-    def _get_route_passage_ids(self, route_results: RouteResults) -> str:
+    def _get_route_passage_ids(self, route_results: 'RouteResults') -> str:
         """Creates string containing whole route passage ids."""
         return f'{self._ROUTE_PASSAGE_IDS_SEP}'.join(
             [str(passage.id) for passage in route_results.route.passages])
 
-    def _get_test_result_as_string(self, route_results: RouteResults) -> str:
+    def _get_test_result_as_string(self, route_results: 'RouteResults') -> str:
         """Maps test bool result to string message."""
         return self._PASS if route_results.get_bool_result() else self._FAIL
 
-    def save_route_results(self, route_results: RouteResults):
+    def save_route_results(self, route_results: 'RouteResults'):
         """Saves route results to database."""
         results = Results(
             self._get_route_passage_ids(route_results),

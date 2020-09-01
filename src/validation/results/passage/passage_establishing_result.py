@@ -2,8 +2,7 @@
 This module contains PassageEstablishingResult class representing single passage establishing
 validation result.
 """
-
-from validation.results.passage.passage_result import PassageResult
+from src.validation.results.passage.passage_result import PassageResult
 
 
 class PassageEstablishingResult(PassageResult):
