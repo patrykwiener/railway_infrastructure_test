@@ -2,10 +2,10 @@
 
 from sqlalchemy import Column, Integer, String
 
-from settings import OutputBase
+from settings import Base
 
 
-class Results(OutputBase):
+class Results(Base):
     """Defines 'results' table."""
 
     __tablename__ = 'results'
